@@ -81,16 +81,16 @@ WSGI_APPLICATION = 'CRUD_app_using_Django_PostgreSQL.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'EmployeeDB',
-#         'USER': 'postgres',
-#         'PASSWORD':'kashif',
-#         'HOST':'localhost'
-#     }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'EmployeeDB',
+        'USER': 'postgres',
+        'PASSWORD':'kashif',
+        'HOST':'localhost'
+    }
 }
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
@@ -130,20 +130,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
-if os.getcwd() == '/app':
-    import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-    #Honor the 'X-forwarded-Proto' header for request.is_secure().
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     db_from_env = dj_database_url.config(conn_max_age=500)
+#     DATABASES['default'].update(db_from_env)
+#     #Honor the 'X-forwarded-Proto' header for request.is_secure().
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    #Allow all host headers
-    ALLOWED_HOSTS = ['crud-app-postgresql.herokuapp.com']
-    DEBUG = True
+#     #Allow all host headers
+#     ALLOWED_HOSTS = ['crud-app-postgresql.herokuapp.com']
+#     DEBUG = True
 
-    #Static asset configuration
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#     #Static asset configuration
+#     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
